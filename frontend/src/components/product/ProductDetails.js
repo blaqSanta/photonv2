@@ -102,7 +102,7 @@ const ProductDetails = ({ match }) => {
 
                             <hr />
 
-                            <p id="product_price ">${product.price}</p>
+                            <p id="product_price ">${(product.price * 1.09).toFixed(2)}</p>
                             <div className="stockCounter  d-inline">
                                 <span className="btn btn-orange minus" onClick={decreaseQty}>-</span>
 

@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 
 
 
+
 const Product = ({ product, col }) => {
+   
     return (
     
         <div className={`col-sm-10 col-md-6 col-lg-${col} my-3`}>
@@ -31,7 +33,7 @@ const Product = ({ product, col }) => {
                         </div>
                         
                     </div>
-                    <p className="card-text" id="prodPrice001">${product.price}</p>
+                    <p className="card-text" id="prodPrice001">${(product.price * 1.09).toFixed(2)}</p>
                     <Link to={`/product/${product._id}`} id="view_btn" className="btn btn-block">View Details</Link>
                 </div>
             </div>

@@ -38,6 +38,8 @@ const Cart = ({ history }) => {
         history.push('/login?redirect=shipping')
     }
 
+    
+
     return (
         <Fragment>
             <MetaData title={'Your Cart'} />
@@ -64,7 +66,7 @@ const Cart = ({ history }) => {
 
 
                                             <div className="col-4 col-lg-2 mt-4 mt-lg-0">
-                                                <p id="card_item_price">${item.price}</p>
+                                                <p id="card_item_price">${(item.price*1.09).toFixed(2)}</p>
                                             </div>
 
                                             <div className="col-4 col-lg-3 mt-4 mt-lg-0">
@@ -142,7 +144,7 @@ const Cart = ({ history }) => {
   <p>Number of Items:  <span className="order-summary-values">{cartItems.reduce((acc, item) => (acc + Number(item.quantity)), 0)} (Units)</span></p>
   <p>Delivery Fee <span className="order-summary-values">$0.00</span></p>
 
-                                <p>Amount Due: <span className="order-summary-values">${cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0).toFixed(2)}</span></p>
+                                <p>Amount Due: <span className="order-summary-values">${cartItems.reduce((acc, item) => acc + item.quantity * (item.price*1.09), 0).toFixed(2)}</span></p>
 
                                 <hr />
    

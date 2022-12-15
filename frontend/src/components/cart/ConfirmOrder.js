@@ -15,9 +15,9 @@ const ConfirmOrder = ({ history }) => {
     const dispatch = useDispatch();
 
     // Calculate Order Prices
-    const itemsPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
+    const itemsPrice = cartItems.reduce((acc, item) => acc + (item.price*1.09) * item.quantity, 0)
     const shippingPrice = itemsPrice > 200 ? 0 : 25
-    const taxPrice = Number((0.03 * itemsPrice).toFixed(2))
+    const taxPrice = Number((0.01 * itemsPrice).toFixed(2))
     const totalPrice = (itemsPrice + shippingPrice + taxPrice).toFixed(2)
 
     const ProcessToPayment = () => {
@@ -79,7 +79,7 @@ const ConfirmOrder = ({ history }) => {
 
 
                                     <div className="col-4 col-lg-4 mt-4 mt-lg-0">
-                                        <p>{item.quantity} x ${item.price} = <b>${(item.quantity * item.price).toFixed(2)}</b></p>
+                                        <p>{item.quantity} x ${(item.price*1.09).toFixed(2)} = <b>${(item.quantity * (item.price*1.09)).toFixed(2)}</b></p>
                                     </div>
 
                                 </div>
@@ -96,7 +96,7 @@ const ConfirmOrder = ({ history }) => {
                     <div id="order_summary">
                         <h4>Order Summary</h4>
                         <hr />
-                        <p>Subtotal:  <span className="order-summary-values">${itemsPrice}</span></p>
+                        <p>Subtotal:  <span className="order-summary-values">${(itemsPrice).toFixed(2)}</span></p>
                         <p>Shipping: <span className="order-summary-values">${shippingPrice}</span></p>
                         <p>Tax:  <span className="order-summary-values">${taxPrice}</span></p>
 
